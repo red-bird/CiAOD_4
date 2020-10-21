@@ -9,6 +9,7 @@ enum Code
 	Print,
 	Find,
 	Update,
+	Delete,
 	Stop
 };
 
@@ -24,7 +25,9 @@ int main() {
 	Record record;
 
 	cout << "variant 18, input data: telephone(10 nums) - key, adress, fullname\n";
-	cout << "------------------------------------------------------------\nEnter code number to do action:\n1) Convert txt file to binary\n2) Print binary file in ASCII\n3) Search data by key\n4) Update data by key\n5) Stop program\n------------------------------------------------------------\n";
+	cout << "------------------------------------------------------------\nEnter code number to do action:\n";
+	cout << "1) Convert txt file to binary\n2) Print binary file in ASCII\n3) Search data by key\n4) Update data by key\n";
+	cout << "5) Delete binary file\n6) Stop program\n------------------------------------------------------------\n";
 	int code;
 	while (true)
 	{
@@ -45,10 +48,16 @@ int main() {
 			break;
 		case(Update):
 			cout << "Enter key(telephone num), adress and fullname (divided by space)\n";
-			cin >> record.key;
+			cin.ignore();
+			getline(cin, record.key);
 			if (record.key.length() < 10) { cout << "wrong key\n"; break; }
-			cin >> record.adress >> record.fullName;
+			getline(cin, record.adress);
+			getline(cin, record.fullName);
 			api.updateByKey(record.key, record.adress, record.fullName);
+			break;
+		case(Delete):
+			if (remove("output.bin")) { cout << "can't remove\n"; }
+			else cout << "Deleted!\n";
 			break;
 		case(Stop):
 			cout << "Stop program\n";

@@ -78,6 +78,7 @@ public:
 		string line;
 		ifstream input("output.bin");
 		ofstream output("output2.bin");
+		bool checker = false;
 		if (!input.is_open())
 			cout << "Can't find binary file\n";
 		else
@@ -88,6 +89,7 @@ public:
 				if (!checkKey(key, line)) { output << line << "\n"; }
 				else {
 					output << key << " " << adress << " " << fullName << "\n";
+					checker = true;
 				}
 			}
 			input.close();
@@ -97,7 +99,10 @@ public:
 			else if (rename("output2.bin", "output.bin")) { cout << "can't rename\n"; }
 			else {
 				remove("output2.bin");
-				cout << "Updated!\n";
+				if (checker)
+					cout << "Updated!\n";
+				else
+					cout << "Can't find!\n";
 			}
 		}
 	}

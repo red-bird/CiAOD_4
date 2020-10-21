@@ -1,4 +1,4 @@
-0123456789 ул.Фрунзенская,д.13,кв.5 Иванов Иван Иванович
-5673125678 ул.Курская,д.7,кв.123 Черкасов Владимир Сергеевич
-0123456789 ул.Судетская,д.2,кв.72 Кузнецов Сергей Валерьевич
-4735647458 ул.Бауманская,д.23,кв.256 Гончаров Николай Васильевич
+0123456789 Frunzenskaya.st,13,5 Ivanov Ivan Ivanovich
+5673125678 Kurskaya.st,7,123 Cherkasov Vladimir Sergeyevich
+0123456789 Sudetskaya.st,2,72 Kuznecov Sergey Valerevich
+4735647458 Baumanskaya.st,23,256 Goncharov Nikolay Vasilevich
