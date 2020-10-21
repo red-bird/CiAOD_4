@@ -12,10 +12,16 @@ enum Code
 	Stop
 };
 
+struct Record {
+	string key = "";
+	string adress = "";
+	string fullName = "";
+};
+
 int main() {
 	setlocale(LC_ALL, "ru");
 	FileAPI api;
-	string key, adress, fullName;
+	Record record;
 
 	cout << "variant 18, input data: telephone(10 nums) - key, adress, fullname\n";
 	cout << "------------------------------------------------------------\nEnter code number to do action:\n1) Convert txt file to binary\n2) Print binary file in ASCII\n3) Search data by key\n4) Update data by key\n5) Stop program\n------------------------------------------------------------\n";
@@ -33,16 +39,16 @@ int main() {
 			break;
 		case(Find):
 			cout << "Enter key(telephone num)\n";
-			cin >> key;
-			if (key.length() < 10) { cout << "wrong key\n"; break; }
-			api.findByKey(key);
+			cin >> record.key;
+			if (record.key.length() < 10) { cout << "wrong key\n"; break; }
+			api.findByKey(record.key);
 			break;
 		case(Update):
 			cout << "Enter key(telephone num), adress and fullname (divided by space)\n";
-			cin >> key;
-			if (key.length() < 10) { cout << "wrong key\n"; break; }
-			cin >> adress >> fullName;
-			api.updateByKey(key, adress, fullName);
+			cin >> record.key;
+			if (record.key.length() < 10) { cout << "wrong key\n"; break; }
+			cin >> record.adress >> record.fullName;
+			api.updateByKey(record.key, record.adress, record.fullName);
 			break;
 		case(Stop):
 			cout << "Stop program\n";
